@@ -1,0 +1,115 @@
+.composition {
+  @include section();
+  background: rgb(0, 7, 124);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 7, 124, 0.4990371148459384) 0%,
+    rgba(47, 76, 177, 0.5018382352941176) 55%,
+    rgba(69, 132, 224, 0.5018382352941176) 100%
+  );
+
+  &__title {
+    @include h2();
+  }
+
+  &__body {
+    @extend %cnt;
+  }
+
+  &__items {
+    display: grid;
+    grid-template-rows: 1fr minmax(20rem, 31rem) 1fr;
+    gap: 6rem;
+    margin-bottom: 7rem;
+  }
+
+  &__items-col {
+    display: grid;
+    justify-items: center;
+    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+
+    &:nth-child(2) {
+      grid-template-columns: none;
+    }
+  }
+
+  &__item {
+  }
+
+  &__btn {
+    @include btn();
+  }
+
+  .item-component {
+    & img {
+      @extend %img;
+      width: 7rem;
+      height: 7rem;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    &__info {
+      @include p();
+      text-align: center;
+      margin-top: 0.7rem;
+    }
+  }
+
+  .item-product {
+    & img {
+      @extend %img;
+      max-width: 20rem;
+    }
+  }
+
+  @media ($tablet) {
+    .item-component {
+      & img {
+        width: 10rem;
+        height: 10rem;
+      }
+    }
+  }
+
+  @media ($desktop) {
+    &__items {
+      grid-template-rows: none;
+      grid-template-columns: 1fr 40% 1fr;
+    }
+
+    &__items-col {
+      grid-template-columns: none;
+    }
+
+    &__item {
+    }
+
+    .item-component {
+      & img {
+        width: 10rem;
+        height: 10rem;
+      }
+    }
+    .item-product {
+      & img {
+        max-width: none;
+      }
+    }
+  }
+  @media ($projector) {
+    &__items-col {
+      row-gap: 3rem;
+    }
+    .item-component {
+      & img {
+        width: 15rem;
+        height: 15rem;
+      }
+      &__info {
+        font-size: 2.2rem;
+      }
+    }
+  }
+}

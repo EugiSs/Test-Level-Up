@@ -14,9 +14,9 @@
 body {
   min-height: 100%;
   font-family: $mainFont;
-  font-size: _;
-  line-height: _;
-  color: _;
+  font-size: 2rem;
+  line-height: 1.2;
+  color: $mainBlack;
 }
 a,
 a:visited {
@@ -33,9 +33,9 @@ textarea {
   font-family: $mainFont;
 }
 ul,
-ol,
-li {
-  list-style: none;
+ol {
+  // list-style: none;
+  padding-left: 0.5rem;
 }
 h1,
 h2,
