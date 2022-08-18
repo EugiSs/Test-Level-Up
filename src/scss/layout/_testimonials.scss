@@ -1,0 +1,49 @@
+.testimonials {
+  @include section();
+  background: rgb(69, 132, 224);
+  background: linear-gradient(
+    180deg,
+    rgba(69, 132, 224, 0.5) 0%,
+    rgba(41, 118, 183, 0.5) 55%,
+    rgba(69, 187, 224, 0.5018382352941176) 100%
+  );
+	overflow: hidden;
+	padding-inline: 1.5rem;
+  &__title {
+    @include h2();
+  }
+
+  &__body {
+		min-height: 50rem;
+  }
+
+  &__items {
+  }
+
+  &__item {
+		height: auto;
+  }
+
+	.swiper-pagination {
+		position: relative;
+		padding-top: 2rem;
+	}
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
+
+  @media ($desktop) {
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: block;
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+      font-size: 3rem;
+      color: $mainWhite;
+    }
+  }
+}

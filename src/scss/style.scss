@@ -1,5 +1,6 @@
 @import "./utils/";
 @import "./layout/";
+@import "./components/";
 
 .wrapper {
   min-height: 100%;
@@ -10,8 +11,4 @@
 
 .main {
   flex: 1 1 auto;
-}
-
-h1 {
-	@include h1();
 }
