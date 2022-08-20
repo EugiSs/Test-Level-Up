@@ -1,33 +1,35 @@
 .testimonials {
   @include section();
-  background: rgb(69, 132, 224);
+  background: rgb(71, 200, 213);
   background: linear-gradient(
     180deg,
-    rgba(69, 132, 224, 0.5) 0%,
-    rgba(41, 118, 183, 0.5) 55%,
-    rgba(69, 187, 224, 0.5018382352941176) 100%
+    rgba(71, 200, 213, 0.5) 0%,
+    rgba(60, 141, 215, 0.5) 55%,
+    rgba(71, 107, 213, 0.5018382352941176) 100%
   );
-	overflow: hidden;
-	padding-inline: 1.5rem;
+  overflow: hidden;
+  padding-inline: 1.5rem;
   &__title {
     @include h2();
   }
 
   &__body {
-		min-height: 50rem;
+    max-width: 110rem;
+    min-height: 50rem;
+    margin: 0 auto;
   }
 
   &__items {
   }
 
   &__item {
-		height: auto;
+    height: auto;
   }
 
-	.swiper-pagination {
-		position: relative;
-		padding-top: 2rem;
-	}
+  .swiper-pagination {
+    position: relative;
+    padding-top: 2rem;
+  }
 
   .swiper-button-prev,
   .swiper-button-next {

@@ -55,13 +55,14 @@
   }
 
   &__description-item {
+    @include p1();
     &:not(:last-child) {
       margin-bottom: 1.5rem;
     }
   }
 
   &__btn {
-    @include btn();
+    @include btn($mainWhite, $mainWhite);
   }
 
   @media ($desktop) {
@@ -71,7 +72,7 @@
     &__preview {
       flex-direction: row;
       justify-content: space-evenly;
-      margin-bottom: 6rem;
+      margin-bottom: 10rem;
     }
     &__img {
       margin: 0 2rem 0 0;

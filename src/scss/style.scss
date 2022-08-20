@@ -12,3 +12,13 @@
 .main {
   flex: 1 1 auto;
 }
+
+// Скрыть стрелочки в циффровом инпуте
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}

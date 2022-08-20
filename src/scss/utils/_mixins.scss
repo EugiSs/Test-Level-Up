@@ -15,7 +15,6 @@
   box-sizing: content-box;
 }
 
-
 // text
 @mixin h1($fs: 5rem) {
   font-size: $fs;
@@ -25,7 +24,7 @@
   margin-bottom: 4rem;
   @media ($desktop) {
     font-size: 7rem;
-    margin-bottom: 6rem;
+    margin-bottom: 8rem;
   }
 }
 
@@ -56,12 +55,30 @@
   font-size: $fs;
   font-weight: 400;
   line-height: normal;
+  @media ($desktop) {
+    font-size: 2rem;
+  }
+  @media ($projector) {
+    font-size: 2.4rem;
+  }
 }
 
 @mixin p2($fs: 2rem) {
   font-size: $fs;
   font-weight: 400;
   line-height: normal;
+  @media ($desktop) {
+    font-size: 2.4rem;
+  }
+}
+
+@mixin p3($fs: 2.2rem) {
+  font-size: $fs;
+  font-weight: 400;
+  line-height: normal;
+  @media ($desktop) {
+    font-size: 3rem;
+  }
 }
 
 // elements
@@ -72,7 +89,7 @@
   height: 100%;
 }
 
-@mixin btn($color: $mainWhite, $bgcolor: $mainWhite) {
+@mixin btn($color: $mainBlack, $borderColor: $mainBlack) {
   display: block;
   width: 17rem;
   font-size: 2rem;
@@ -82,9 +99,10 @@
   text-decoration: none;
   color: $color;
   background-color: transparent;
-  border: 1px solid $bgcolor;
+  border: 1px solid $borderColor;
   border-radius: 1rem;
   user-select: none;
+  transition: all 0.5s ease 0s;
   padding: 1.5rem;
   margin: 0 auto;
 
@@ -93,5 +111,81 @@
     font-size: 2.4rem;
     padding: 2rem;
   }
+
+  &:hover {
+    box-shadow: 1px 1px $borderColor, 2px 2px $borderColor, 3px 3px $borderColor,
+      4px 4px $borderColor, 5px 5px $borderColor;
+    transform: translateX(-0.3rem);
+  }
 }
 
+@mixin input() {
+  display: block;
+  font-size: 1.6rem;
+  width: 100%;
+  min-height: 4rem;
+  line-height: 1;
+  border: 1px solid $mainBlack;
+  border-radius: 0.5rem;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1), 0px 1px 1px rgb(0 0 0 / 10%);
+  background-color: transparent;
+  padding: 1.5rem 1rem;
+  margin-bottom: 0.7rem;
+
+  &::placeholder {
+    opacity: 0;
+    font-size: 1.2rem;
+    color: $mainWhite;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: all 0.3s ease 0s;
+    padding: 0.2rem 0.3rem 0 0;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $mainWhite;
+    box-shadow: 0 0 8px lighten($mainWhite, 10%);
+  }
+
+  &:focus::placeholder {
+    opacity: 1;
+  }
+
+  @media ($desktop) {
+    font-size: 1.8rem;
+    min-height: 6rem;
+    margin-bottom: 2rem;
+    &:focus::placeholder {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+@mixin line($t: 110%, $l: 50%, $rotate: 0) {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: $t;
+    left: $l;
+    width: 0.2rem;
+    height: 3rem;
+    background-color: black;
+    transform: rotate($rotate);
+  }
+  @media ($desktop) {
+    &::after {
+      height: 7rem;
+      top: 30%;
+      left: 150%;
+      transform: rotate(90deg);
+    }
+  }
+  @media ($projector) {
+    &::after {
+      left: 180%;
+    }
+  }
+}
